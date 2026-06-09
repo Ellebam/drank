@@ -324,6 +324,18 @@
       "quantity": 2,
       "image": "assets/images/hendricks-gin.png",
       "description": "Schottischer Gin mit charakteristischer Note von Gurke und Rose – mild und blumig, ideal für Gin Tonic."
+    },
+    {
+      "id": "divino-franken-silvaner-trocken",
+      "name": "DIVINO Franken Silvaner trocken 2025",
+      "brand": "DIVINO",
+      "category": "Wein",
+      "alcoholic": true,
+      "abv": 11.5,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 15,
+      "description": "Trockener Frankensilvaner der Winzergenossenschaft DIVINO Nordheim-Thüngersheim – frisch und unkompliziert."
     }
   ]
 }
