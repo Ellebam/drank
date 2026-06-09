@@ -40,6 +40,45 @@
       "quantity": 37,
       "image": "assets/images/aperol-aperitivo.png",
       "description": "Leuchtend orangeroter Aperitif mit fruchtig-bitterer Note – die Basis für den klassischen Aperol Spritz."
+    },
+    {
+      "id": "valensina-secco-orange",
+      "name": "Valensina Secco Orange",
+      "brand": "Valensina",
+      "category": "Sekt & Prosecco",
+      "alcoholic": true,
+      "abv": 7,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 28,
+      "image": "assets/images/valensina-secco-orange.png",
+      "description": "Prickelnder Frucht-Secco mit Orange – fruchtig-leicht und perfekt als spritziger Aperitif."
+    },
+    {
+      "id": "camasella-primitivo-puglia",
+      "name": "Camasella Primitivo Puglia IGT Doppia Fermentazione",
+      "brand": "Camasella",
+      "category": "Wein",
+      "alcoholic": true,
+      "abv": 13.5,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 4,
+      "image": "assets/images/camasella-primitivo-puglia.jpg",
+      "description": "Kräftiger Rotwein aus Apulien mit reifen Beerenaromen und sanfter Schokoladennote, durch doppelte Gärung besonders vollmundig."
+    },
+    {
+      "id": "donna-serap-granatapfel",
+      "name": "Donna Serap Glitzer-Aperitif Granatapfel",
+      "brand": "Donna Serap",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 15,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 1,
+      "image": "assets/images/donna-serap-granatapfel.png",
+      "description": "Funkelnder Aperitif mit Granatapfel – vor dem Einschenken schütteln, dann glitzert es im Glas."
     }
   ]
 }
