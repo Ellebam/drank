@@ -311,6 +311,19 @@
       "quantity": 1,
       "image": "assets/images/another-hendricks-gin.png",
       "description": "Neue Hendrick's-Variante in weißer Flasche – mit Orangenblüte und Kakao statt Gurke und Rose, hell und zitrusbetont."
+    },
+    {
+      "id": "hendricks-gin",
+      "name": "Hendrick's Gin",
+      "brand": "Hendrick's",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 41.4,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 2,
+      "image": "assets/images/hendricks-gin.png",
+      "description": "Schottischer Gin mit charakteristischer Note von Gurke und Rose – mild und blumig, ideal für Gin Tonic."
     }
   ]
 }
