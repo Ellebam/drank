@@ -1,0 +1,53 @@
+# ---- Secrets / Tokens / Keys (never commit) ----
+.env
+.env.*
+*.local
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+id_rsa*
+id_ed25519*
+*secret*
+*token*
+*credential*
+*.keystore
+.netrc
+
+# ---- Quell-Fotos (eure eigenen Aufnahmen – NICHT auf die Website) ----
+# Eigene Handy-/Kamerafotos zum Identifizieren von Getränken.
+# Auf der Website werden ausschließlich hochwertige Bilder aus dem
+# Internet (in assets/images/) verwendet – nie diese Quell-Fotos.
+source-photos/
+quellfotos/
+*.HEIC
+*.heic
+*.HEIF
+*.heif
+
+# ---- Claude Code ----
+# settings.json wird BEWUSST committet (geteilte Projekt-Config für den
+# Handy-Workflow). Nur lokale/maschinenspezifische Dateien ausschließen:
+.claude/settings.local.json
+.claude/*.lock
+.claude/shell-snapshots/
+.claude/todos/
+.claude/projects/
+.claude/statsig/
+.claude/.credentials.json
+
+# ---- OS / Editor ----
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+*.log
+
+# ---- Temp ----
+tmp/
+.cache/

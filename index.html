@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Unsere Getränke</title>
+  <meta name="description" content="Übersicht unserer Getränke – Bestand, Mengen und Sorten auf einen Blick." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="Unsere Getränke" />
+  <meta property="og:description" content="Übersicht unserer Getränke – Bestand, Mengen und Sorten auf einen Blick." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E🥂%3C/text%3E%3C/svg%3E" />
+  <link rel="preload" href="data/beverages.json" as="fetch" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#bestand">Zum Bestand springen</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Getränke-Übersicht</p>
+      <h1 id="page-title">Unsere Getränke</h1>
+      <p class="lede" id="page-subtitle"></p>
+      <p class="updated" id="page-updated"></p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Kennzahlen / Überblick -->
+    <section class="stats" id="stats" aria-labelledby="stats-heading">
+      <h2 id="stats-heading" class="visually-hidden">Überblick</h2>
+      <div class="stat-grid" id="stat-grid"></div>
+      <div class="breakdown" id="breakdown"></div>
+    </section>
+
+    <!-- Filter -->
+    <section class="controls" aria-label="Filter">
+      <div class="segmented" id="filter-alcohol" role="group" aria-label="Nach Art filtern"></div>
+      <div class="chips" id="filter-category" role="group" aria-label="Nach Kategorie filtern"></div>
+    </section>
+
+    <!-- Bestand -->
+    <section id="bestand">
+      <p class="visually-hidden" id="sr-status" role="status" aria-live="polite"></p>
+      <div id="inventory"></div>
+      <p class="empty" id="empty-state" hidden>Keine Getränke in dieser Auswahl.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Bestand wird laufend aktualisiert · Alle Angaben ohne Gewähr</p>
+    </div>
+  </footer>
+
+  <template id="card-template">
+    <article class="card">
+      <div class="card-media">
+        <img class="card-img" alt="" loading="lazy" decoding="async" />
+        <span class="qty-badge"></span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag"></span>
+        <h3 class="card-name"></h3>
+        <p class="card-desc"></p>
+        <dl class="card-meta"></dl>
+      </div>
+    </article>
+  </template>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "title": "Unsere Getränke",
+    "subtitle": "Übersicht unserer Getränke – was da ist, wie viel und in welcher Menge.",
+    "updated": "2026-06-09"
+  },
+  "categoryOrder": [
+    "Sekt & Prosecco",
+    "Wein",
+    "Bier",
+    "Spirituosen",
+    "Softdrinks",
+    "Säfte",
+    "Wasser",
+    "Heißgetränke"
+  ],
+  "beverages": [
+    {
+      "id": "mionetto-prosecco-doc-treviso-brut",
+      "name": "Mionetto Prosecco DOC Treviso Brut",
+      "brand": "Mionetto",
+      "category": "Sekt & Prosecco",
+      "alcoholic": true,
+      "abv": 11,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 3,
+      "image": "assets/images/mionetto-prosecco-doc-treviso-brut.png",
+      "description": "Frischer, lebhafter Prosecco mit feiner Perlage und Noten von Apfel, weißem Pfirsich und einem Hauch Honig. Trocken im Abgang."
+    }
+  ]
+}
