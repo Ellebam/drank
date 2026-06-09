@@ -11,7 +11,10 @@
   <meta property="og:description" content="Übersicht unserer Getränke – Bestand, Mengen und Sorten auf einen Blick." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E🥂%3C/text%3E%3C/svg%3E" />
-  <link rel="preload" href="data/beverages.json" as="fetch" />
+  <link rel="preload" href="data/beverages.json" as="fetch" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -27,11 +30,10 @@
   </header>
 
   <main class="wrap">
-    <!-- Kennzahlen / Überblick -->
-    <section class="stats" id="stats" aria-labelledby="stats-heading">
+    <!-- Überblick – reagiert auf Auswahl (Art, Kategorie, einzelnes Getränk) -->
+    <section class="overview" id="overview" aria-labelledby="stats-heading">
       <h2 id="stats-heading" class="visually-hidden">Überblick</h2>
-      <div class="stat-grid" id="stat-grid"></div>
-      <div class="breakdown" id="breakdown"></div>
+      <div id="overview-body"></div>
     </section>
 
     <!-- Filter -->
