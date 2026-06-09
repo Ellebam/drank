@@ -336,6 +336,42 @@
       "unit": "Flasche",
       "quantity": 15,
       "description": "Trockener Frankensilvaner der Winzergenossenschaft DIVINO Nordheim-Thüngersheim – frisch und unkompliziert."
+    },
+    {
+      "id": "divino-franken-scheurebe-halbtrocken",
+      "name": "DIVINO Franken Scheurebe halbtrocken 2024",
+      "brand": "DIVINO",
+      "category": "Wein",
+      "alcoholic": true,
+      "abv": 11.5,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 3,
+      "description": "Aromatischer, halbtrockener Frankenwein aus der Scheurebe – Noten von schwarzer Johannisbeere und Pfirsich, ausgezeichnet mit Franken Silber."
+    },
+    {
+      "id": "divino-franken-rotling-halbtrocken",
+      "name": "DIVINO Franken Rotling halbtrocken 2024",
+      "brand": "DIVINO",
+      "category": "Wein",
+      "alcoholic": true,
+      "abv": 11,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 4,
+      "description": "Fruchtig-spritziger Rotling aus Franken mit Aromen von Erdbeere und Himbeere – saftig und halbtrocken."
+    },
+    {
+      "id": "giolano-prosecco-frizzante",
+      "name": "Giolano Prosecco DOC Vino Frizzante",
+      "brand": "Giolano",
+      "category": "Sekt & Prosecco",
+      "alcoholic": true,
+      "abv": 10.5,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 8,
+      "description": "Leichter, fruchtiger Frizzante-Prosecco aus Italien mit feiner Perlage – frisch und unkompliziert als Aperitif."
     }
   ]
 }
