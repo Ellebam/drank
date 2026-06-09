@@ -105,6 +105,58 @@
       "quantity": 1,
       "image": "assets/images/donna-serap-granatapfel.png",
       "description": "Funkelnder Aperitif mit Granatapfel – vor dem Einschenken schütteln, dann glitzert es im Glas."
+    },
+    {
+      "id": "die-jungen-frankn-silvaner",
+      "name": "Die Jungen Frank'n Silvaner trocken 2025",
+      "brand": "Die Jungen Frank'n",
+      "category": "Wein",
+      "alcoholic": true,
+      "abv": 11,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/die-jungen-frankn-silvaner.jpg",
+      "description": "Trockener Frankenwein mit feiner Frucht und mineralischer Frische – klassisch zu Spargel."
+    },
+    {
+      "id": "die-jungen-frankn-bacchus",
+      "name": "Die Jungen Frank'n Bacchus halbtrocken 2024",
+      "brand": "Die Jungen Frank'n",
+      "category": "Wein",
+      "alcoholic": true,
+      "abv": 11,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/die-jungen-frankn-bacchus.png",
+      "description": "Aromatischer, halbtrockener Weißwein mit intensiv fruchtigen Noten exotischer Früchte."
+    },
+    {
+      "id": "die-jungen-frankn-mueller-thurgau",
+      "name": "Die Jungen Frank'n Müller-Thurgau trocken 2025",
+      "brand": "Die Jungen Frank'n",
+      "category": "Wein",
+      "alcoholic": true,
+      "abv": 11,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/die-jungen-frankn-mueller-thurgau.png",
+      "description": "Leichter, trockener Weißwein mit dezenter Würze nach Apfel und Muskat."
+    },
+    {
+      "id": "die-jungen-frankn-rotling",
+      "name": "Die Jungen Frank'n Rotling halbtrocken 2023",
+      "brand": "Die Jungen Frank'n",
+      "category": "Wein",
+      "alcoholic": true,
+      "abv": 11,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/die-jungen-frankn-rotling.png",
+      "description": "Fruchtiger Rotling mit Aromen von Erdbeere und Himbeere – halbtrocken und spritzig."
     }
   ]
 }
