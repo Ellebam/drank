@@ -41,6 +41,7 @@
     "Sekt & Prosecco": 0.1,
     "Wein": 0.2,
     "Bier": 0.3,
+    "Aperitif & Spritz": 0.07,
     "Spirituosen": 0.04,
     "Softdrinks": 0.2,
     "Säfte": 0.2,
