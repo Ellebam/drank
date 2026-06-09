@@ -222,6 +222,95 @@
       "quantity": 6,
       "image": "assets/images/9-mile-vodka.jpg",
       "description": "Milder deutscher Premium-Wodka, durch Granitstein gefiltert – pur, als Longdrink oder im Cocktail."
+    },
+    {
+      "id": "ramazzotti-amaro",
+      "name": "Ramazzotti Amaro",
+      "brand": "Ramazzotti",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 30,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 4,
+      "image": "assets/images/ramazzotti-amaro.jpg",
+      "description": "Italienischer Kräuterlikör aus 33 Kräutern, Wurzeln und Früchten – kräftig-bittersüß, pur oder auf Eis."
+    },
+    {
+      "id": "ramazzotti-aperitivo-rosato",
+      "name": "Ramazzotti Aperitivo Rosato",
+      "brand": "Ramazzotti",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 15,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 9,
+      "image": "assets/images/ramazzotti-aperitivo-rosato.jpg",
+      "description": "Fruchtig-frischer Aperitif mit Hibiskus und Orangenblüte – ideal als Spritz mit Prosecco."
+    },
+    {
+      "id": "ramazzotti-limoncello",
+      "name": "Ramazzotti Limoncello",
+      "brand": "Ramazzotti",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 25,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/ramazzotti-limoncello.png",
+      "description": "Spritziger Zitronenlikör aus italienischen Zitronen – eisgekühlt als Digestif."
+    },
+    {
+      "id": "ramazzotti-aperitivo-fresco",
+      "name": "Ramazzotti Aperitivo Fresco",
+      "brand": "Ramazzotti",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 15,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 2,
+      "image": "assets/images/ramazzotti-aperitivo-fresco.png",
+      "description": "Leichter Aperitif mit Zitrus und Minze – frisch und unkompliziert als Spritz."
+    },
+    {
+      "id": "albi-orange",
+      "name": "albi Orange",
+      "brand": "albi",
+      "category": "Säfte",
+      "alcoholic": false,
+      "bottleVolume": 1.0,
+      "unit": "Packung",
+      "quantity": 36,
+      "image": "assets/images/albi-orange.jpg",
+      "description": "Orangensaft mit 100 % Fruchtgehalt – fruchtig und ohne Zuckerzusatz."
+    },
+    {
+      "id": "albi-apfel-klar",
+      "name": "albi Apfel Klar",
+      "brand": "albi",
+      "category": "Säfte",
+      "alcoholic": false,
+      "bottleVolume": 1.0,
+      "unit": "Packung",
+      "quantity": 18,
+      "image": "assets/images/albi-apfel-klar.jpg",
+      "description": "Klarer Apfelsaft mit 100 % Fruchtgehalt – mild und erfrischend."
+    },
+    {
+      "id": "another-hendricks-gin",
+      "name": "Another Hendrick's Gin",
+      "brand": "Hendrick's",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 44,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 1,
+      "image": "assets/images/another-hendricks-gin.png",
+      "description": "Neue Hendrick's-Variante in weißer Flasche – mit Orangenblüte und Kakao statt Gurke und Rose, hell und zitrusbetont."
     }
   ]
 }
