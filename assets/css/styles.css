@@ -229,14 +229,15 @@ main { padding-block: clamp(28px, 5vw, 48px) 64px; }
   aspect-ratio: 4 / 5;
   background:
     radial-gradient(80% 70% at 50% 25%, #ffffff 0%, #f0f1f4 100%);
-  display: grid; place-items: center; padding: 16px 16px 12px;
+  display: grid; place-items: center;
 }
 @media (prefers-color-scheme: dark) {
   .card-media { background: radial-gradient(80% 70% at 50% 25%, #20262f 0%, #161a20 100%); }
 }
 .card-img {
-  max-width: 86%; max-height: 92%;
-  width: auto; height: auto;
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  padding: 16px 16px 12px;
   object-fit: contain;
   filter: drop-shadow(0 10px 18px rgba(16,18,23,.18));
 }
