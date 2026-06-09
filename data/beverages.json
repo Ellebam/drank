@@ -50,9 +50,35 @@
       "abv": 7,
       "bottleVolume": 0.75,
       "unit": "Flasche",
-      "quantity": 28,
+      "quantity": 18,
       "image": "assets/images/valensina-secco-orange.png",
       "description": "Prickelnder Frucht-Secco mit Orange – fruchtig-leicht und perfekt als spritziger Aperitif."
+    },
+    {
+      "id": "valensina-secco-pfirsich-maracuja",
+      "name": "Valensina Secco Pfirsich-Maracuja",
+      "brand": "Valensina",
+      "category": "Sekt & Prosecco",
+      "alcoholic": true,
+      "abv": 7,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/valensina-secco-pfirsich-maracuja.png",
+      "description": "Prickelnder Frucht-Secco mit Pfirsich und Maracuja – fruchtig-sanft und spritzig."
+    },
+    {
+      "id": "valensina-secco-multi-frucht",
+      "name": "Valensina Secco Multi-Frucht",
+      "brand": "Valensina",
+      "category": "Sekt & Prosecco",
+      "alcoholic": true,
+      "abv": 7,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/valensina-secco-multi-frucht.png",
+      "description": "Prickelnder Frucht-Secco mit vielfruchtiger Note – fruchtig-sanft und erfrischend."
     },
     {
       "id": "camasella-primitivo-puglia",
