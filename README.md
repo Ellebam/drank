@@ -7,10 +7,15 @@ JavaScript. Die gesamten Inhalte stehen in **einer** Datei: [`data/beverages.jso
 ## Aufbau
 
 ```
-index.html                 # Seitengerüst
+index.html                 # Seitengerüst (inkl. Suche, Sortierung, Skeleton)
+manifest.webmanifest       # PWA: „Zum Homescreen hinzufügen“
+sw.js                      # Service Worker (Offline-Cache)
 assets/css/styles.css      # Design (modern & minimal, responsiv, Light/Dark)
 assets/js/app.js           # rendert die Seite aus den Daten
-assets/images/             # hochwertige Produktbilder aus dem Internet
+assets/fonts/              # selbst gehostete Schriften (DSGVO-freundlich)
+assets/icons/              # App-Icons (PWA / Apple Touch)
+assets/images/             # Produktbilder (WebP, max. 800 px)
+assets/og-image.png        # Vorschaubild fürs Teilen (WhatsApp & Co.)
 data/beverages.json        # >>> hier wird der Bestand gepflegt <<<
 .nojekyll                  # GitHub Pages ohne Jekyll ausliefern
 ```
@@ -30,7 +35,7 @@ Alles passiert in `data/beverages.json`. Ein Getränk sieht so aus:
   "bottleVolume": 0.75,
   "unit": "Flasche",
   "quantity": 3,
-  "image": "assets/images/mionetto-prosecco-doc-treviso-brut.png",
+  "image": "assets/images/mionetto-prosecco-doc-treviso-brut.webp",
   "description": "Kurze Beschreibung …"
 }
 ```

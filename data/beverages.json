@@ -26,7 +26,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 21,
-      "image": "assets/images/mionetto-prosecco-doc-treviso-brut.png",
+      "image": "assets/images/mionetto-prosecco-doc-treviso-brut.webp",
       "description": "Frischer, lebhafter Prosecco mit feiner Perlage und Noten von Apfel, weißem Pfirsich und einem Hauch Honig. Trocken im Abgang."
     },
     {
@@ -39,7 +39,7 @@
       "bottleVolume": 0.7,
       "unit": "Flasche",
       "quantity": 37,
-      "image": "assets/images/aperol-aperitivo.png",
+      "image": "assets/images/aperol-aperitivo.webp",
       "description": "Leuchtend orangeroter Aperitif mit fruchtig-bitterer Note – die Basis für den klassischen Aperol Spritz."
     },
     {
@@ -52,7 +52,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 18,
-      "image": "assets/images/valensina-secco-orange.png",
+      "image": "assets/images/valensina-secco-orange.webp",
       "description": "Prickelnder Frucht-Secco mit Orange – fruchtig-leicht und perfekt als spritziger Aperitif."
     },
     {
@@ -65,7 +65,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 6,
-      "image": "assets/images/valensina-secco-pfirsich-maracuja.png",
+      "image": "assets/images/valensina-secco-pfirsich-maracuja.webp",
       "description": "Prickelnder Frucht-Secco mit Pfirsich und Maracuja – fruchtig-sanft und spritzig."
     },
     {
@@ -78,7 +78,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 6,
-      "image": "assets/images/valensina-secco-multi-frucht.png",
+      "image": "assets/images/valensina-secco-multi-frucht.webp",
       "description": "Prickelnder Frucht-Secco mit vielfruchtiger Note – fruchtig-sanft und erfrischend."
     },
     {
@@ -91,7 +91,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 4,
-      "image": "assets/images/camasella-primitivo-puglia.jpg",
+      "image": "assets/images/camasella-primitivo-puglia.webp",
       "description": "Kräftiger Rotwein aus Apulien mit reifen Beerenaromen und sanfter Schokoladennote, durch doppelte Gärung besonders vollmundig."
     },
     {
@@ -104,7 +104,7 @@
       "bottleVolume": 0.7,
       "unit": "Flasche",
       "quantity": 1,
-      "image": "assets/images/donna-serap-granatapfel.png",
+      "image": "assets/images/donna-serap-granatapfel.webp",
       "description": "Funkelnder Aperitif mit Granatapfel – vor dem Einschenken schütteln, dann glitzert es im Glas."
     },
     {
@@ -117,7 +117,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 6,
-      "image": "assets/images/die-jungen-frankn-silvaner.jpg",
+      "image": "assets/images/die-jungen-frankn-silvaner.webp",
       "description": "Trockener Frankenwein mit feiner Frucht und mineralischer Frische – klassisch zu Spargel."
     },
     {
@@ -130,7 +130,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 6,
-      "image": "assets/images/die-jungen-frankn-bacchus.png",
+      "image": "assets/images/die-jungen-frankn-bacchus.webp",
       "description": "Aromatischer, halbtrockener Weißwein mit intensiv fruchtigen Noten exotischer Früchte."
     },
     {
@@ -143,7 +143,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 6,
-      "image": "assets/images/die-jungen-frankn-mueller-thurgau.png",
+      "image": "assets/images/die-jungen-frankn-mueller-thurgau.webp",
       "description": "Leichter, trockener Weißwein mit dezenter Würze nach Apfel und Muskat."
     },
     {
@@ -156,7 +156,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 6,
-      "image": "assets/images/die-jungen-frankn-rotling.png",
+      "image": "assets/images/die-jungen-frankn-rotling.webp",
       "description": "Fruchtiger Rotling mit Aromen von Erdbeere und Himbeere – halbtrocken und spritzig."
     },
     {
@@ -169,7 +169,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 14,
-      "image": "assets/images/doppio-passo-primitivo.jpg",
+      "image": "assets/images/doppio-passo-primitivo.webp",
       "description": "Samtiger, vollmundiger Rotwein aus Apulien mit Aromen von dunklen Beeren und Kirsche – durch Doppelgärung intensiv und mild."
     },
     {
@@ -182,7 +182,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 6,
-      "image": "assets/images/doppio-passo-primitivo-bio.jpg",
+      "image": "assets/images/doppio-passo-primitivo-bio.webp",
       "description": "Bio-Rotwein aus Apulien, 100 % Primitivo – tiefdunkel, fruchtig nach Brombeere und Kirsche, vollmundig und weich."
     },
     {
@@ -195,7 +195,7 @@
       "bottleVolume": 1.5,
       "unit": "Flasche",
       "quantity": 1,
-      "image": "assets/images/bacardi-carta-blanca.png",
+      "image": "assets/images/bacardi-carta-blanca.webp",
       "description": "Milder, klarer weißer Rum – vielseitig für Cocktails wie Mojito, Cuba Libre oder Daiquiri."
     },
     {
@@ -208,7 +208,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 1,
-      "image": "assets/images/baldauf-muschelkalk-bacchus-feinfruchtig.jpg",
+      "image": "assets/images/baldauf-muschelkalk-bacchus-feinfruchtig.webp",
       "description": "Feinfruchtiger Frankenwein aus Bacchus-Trauben auf Muschelkalk – Noten von Holunderblüte, Papaya und Zitrus, halbtrocken."
     },
     {
@@ -221,7 +221,7 @@
       "bottleVolume": 0.7,
       "unit": "Flasche",
       "quantity": 6,
-      "image": "assets/images/9-mile-vodka.jpg",
+      "image": "assets/images/9-mile-vodka.webp",
       "description": "Milder deutscher Premium-Wodka, durch Granitstein gefiltert – pur, als Longdrink oder im Cocktail."
     },
     {
@@ -234,7 +234,7 @@
       "bottleVolume": 0.7,
       "unit": "Flasche",
       "quantity": 4,
-      "image": "assets/images/ramazzotti-amaro.jpg",
+      "image": "assets/images/ramazzotti-amaro.webp",
       "description": "Italienischer Kräuterlikör aus 33 Kräutern, Wurzeln und Früchten – kräftig-bittersüß, pur oder auf Eis."
     },
     {
@@ -247,7 +247,7 @@
       "bottleVolume": 0.7,
       "unit": "Flasche",
       "quantity": 9,
-      "image": "assets/images/ramazzotti-aperitivo-rosato.jpg",
+      "image": "assets/images/ramazzotti-aperitivo-rosato.webp",
       "description": "Fruchtig-frischer Aperitif mit Hibiskus und Orangenblüte – ideal als Spritz mit Prosecco."
     },
     {
@@ -260,7 +260,7 @@
       "bottleVolume": 0.7,
       "unit": "Flasche",
       "quantity": 6,
-      "image": "assets/images/ramazzotti-limoncello.png",
+      "image": "assets/images/ramazzotti-limoncello.webp",
       "description": "Spritziger Zitronenlikör aus italienischen Zitronen – eisgekühlt als Digestif."
     },
     {
@@ -273,7 +273,7 @@
       "bottleVolume": 0.7,
       "unit": "Flasche",
       "quantity": 2,
-      "image": "assets/images/ramazzotti-aperitivo-fresco.png",
+      "image": "assets/images/ramazzotti-aperitivo-fresco.webp",
       "description": "Leichter Aperitif mit Zitrus und Minze – frisch und unkompliziert als Spritz."
     },
     {
@@ -285,7 +285,7 @@
       "bottleVolume": 1.0,
       "unit": "Packung",
       "quantity": 36,
-      "image": "assets/images/albi-orange.jpg",
+      "image": "assets/images/albi-orange.webp",
       "description": "Orangensaft mit 100 % Fruchtgehalt – fruchtig und ohne Zuckerzusatz."
     },
     {
@@ -297,7 +297,7 @@
       "bottleVolume": 1.0,
       "unit": "Packung",
       "quantity": 18,
-      "image": "assets/images/albi-apfel-klar.jpg",
+      "image": "assets/images/albi-apfel-klar.webp",
       "description": "Klarer Apfelsaft mit 100 % Fruchtgehalt – mild und erfrischend."
     },
     {
@@ -310,7 +310,7 @@
       "bottleVolume": 0.7,
       "unit": "Flasche",
       "quantity": 1,
-      "image": "assets/images/another-hendricks-gin.png",
+      "image": "assets/images/another-hendricks-gin.webp",
       "description": "Neue Hendrick's-Variante in weißer Flasche – mit Orangenblüte und Kakao statt Gurke und Rose, hell und zitrusbetont."
     },
     {
@@ -323,7 +323,7 @@
       "bottleVolume": 0.7,
       "unit": "Flasche",
       "quantity": 2,
-      "image": "assets/images/hendricks-gin.png",
+      "image": "assets/images/hendricks-gin.webp",
       "description": "Schottischer Gin mit charakteristischer Note von Gurke und Rose – mild und blumig, ideal für Gin Tonic."
     },
     {
@@ -336,6 +336,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 15,
+      "image": "assets/images/divino-franken-silvaner-trocken.webp",
       "description": "Trockener Frankensilvaner der Winzergenossenschaft DIVINO Nordheim-Thüngersheim – frisch und unkompliziert."
     },
     {
@@ -360,6 +361,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 4,
+      "image": "assets/images/divino-franken-rotling-halbtrocken.webp",
       "description": "Fruchtig-spritziger Rotling aus Franken mit Aromen von Erdbeere und Himbeere – saftig und halbtrocken."
     },
     {
@@ -372,6 +374,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 8,
+      "image": "assets/images/giolano-prosecco-frizzante.webp",
       "description": "Leichter, fruchtiger Frizzante-Prosecco aus Italien mit feiner Perlage – frisch und unkompliziert als Aperitif."
     }
   ]

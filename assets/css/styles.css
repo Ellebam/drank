@@ -2,6 +2,24 @@
    Unsere Getränke – elegant, hochwertig, minimal
    ============================================================ */
 
+/* ---------- Selbst gehostete Schriften (Variable Fonts, Latin) ---------- */
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-var.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/inter-var.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --bg: #faf7f1;            /* warmes Creme statt hartem Weiß */
   --bg-2: #f3eee4;
@@ -210,17 +228,26 @@ main { padding-block: clamp(28px, 5vw, 48px) 72px; }
   background: var(--surface-2); border: 1px solid var(--border);
   box-shadow: inset 0 1px 2px rgba(0,0,0,.04);
 }
-.comp-seg { height: 100%; transition: width .5s ease; }
+.comp-seg {
+  height: 100%; transition: width .5s ease, opacity .2s ease;
+  border: 0; padding: 0; margin: 0; cursor: pointer; min-width: 4px;
+}
 .comp-seg + .comp-seg { box-shadow: inset 1px 0 0 rgba(255,255,255,.35); }
+.comp-seg.is-dim { opacity: .3; }
+.comp-seg.is-active { box-shadow: inset 0 0 0 2px rgba(255,255,255,.65); }
 
 .comp-legend {
-  list-style: none; margin: 12px 0 0; padding: 0;
-  display: grid; gap: 8px;
+  list-style: none; margin: 10px 0 0; padding: 0;
+  display: grid; gap: 4px;
 }
 .comp-item {
   display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px;
   font-size: .88rem;
+  padding: 3px 8px; margin-inline: -8px; border-radius: 8px;
+  transition: background .15s ease;
 }
+.comp-item.is-hl { background: var(--accent-soft); }
+.comp-item.is-hl .comp-label { color: var(--accent-ink); font-weight: 600; }
 .comp-swatch { width: 11px; height: 11px; border-radius: 3px; flex: none; }
 .comp-label { color: var(--ink); font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .comp-val { color: var(--ink-faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -262,13 +289,44 @@ main { padding-block: clamp(28px, 5vw, 48px) 72px; }
    ============================================================ */
 .controls {
   position: sticky; top: 0; z-index: 5;
-  display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+  display: flex; flex-direction: column; gap: 12px;
   padding-block: 14px;
   margin-bottom: 8px;
   background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: saturate(1.4) blur(12px);
   border-bottom: 1px solid var(--border);
 }
+.controls-row {
+  display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center;
+}
+
+/* ---------- Suche ---------- */
+.search-box { position: relative; flex: 1 1 200px; min-width: 160px; max-width: 360px; }
+.search-box svg {
+  position: absolute; left: 13px; top: 50%; translate: 0 -50%;
+  width: 15px; height: 15px; color: var(--ink-faint); pointer-events: none;
+}
+#search-input {
+  width: 100%; font: inherit; font-size: .88rem; color: var(--ink);
+  padding: 9px 16px 9px 36px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: border-color .15s;
+}
+#search-input::placeholder { color: var(--ink-faint); }
+#search-input:hover { border-color: var(--border-strong); }
+#search-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+#search-input::-webkit-search-cancel-button { cursor: pointer; }
+
+/* ---------- Sortierung ---------- */
+.sort-box select {
+  font: inherit; font-size: .84rem; font-weight: 500; color: var(--ink-soft);
+  padding: 9px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: border-color .15s;
+}
+.sort-box select:hover { border-color: var(--border-strong); }
 .segmented {
   display: inline-flex; padding: 4px; gap: 2px;
   background: var(--surface); border: 1px solid var(--border);
@@ -385,6 +443,60 @@ main { padding-block: clamp(28px, 5vw, 48px) 72px; }
   padding: 48px 0; font-size: 1rem;
 }
 
+/* ---------- „Reicht das?“ – Gäste-Rechner ---------- */
+.planner {
+  margin-top: clamp(20px, 3vw, 28px);
+  padding-top: clamp(16px, 2.5vw, 22px);
+  border-top: 1px dashed var(--border);
+}
+.planner-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.planner-row label { font-size: .9rem; font-weight: 600; color: var(--ink-soft); }
+#guest-input {
+  width: 96px; font: inherit; font-size: .95rem; color: var(--ink);
+  padding: 8px 12px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong); background: var(--surface);
+  font-variant-numeric: tabular-nums;
+}
+#guest-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.planner-result { margin: 0; flex: 1 1 260px; font-size: .92rem; color: var(--ink-soft); }
+.planner-result strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* ---------- Hinweise zur Datenpflege ---------- */
+.data-warning {
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, #b98900 40%, var(--border));
+  background: color-mix(in srgb, #f0b429 10%, var(--surface));
+  border-radius: var(--radius-sm);
+  font-size: .88rem; color: var(--ink-soft);
+}
+.data-warning summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+.data-warning ul { margin: 10px 0 2px; padding-left: 20px; }
+.data-warning li + li { margin-top: 4px; }
+
+/* ---------- Skeleton (Ladezustand, wird vom Rendering ersetzt) ---------- */
+.sk {
+  position: relative; overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.sk::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+  animation: shimmer 1.4s infinite;
+}
+@media (prefers-color-scheme: dark) {
+  .sk::after { background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .07), transparent); }
+}
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+.sk-stat { height: 108px; }
+.sk-title { height: 34px; max-width: 320px; margin: 16px 0 18px; }
+.sk-card { height: 380px; border-radius: var(--radius); }
+
 /* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--border);
@@ -392,24 +504,33 @@ main { padding-block: clamp(28px, 5vw, 48px) 72px; }
   color: var(--ink-faint); font-size: .85rem;
 }
 
-/* ---------- Loading skeleton (before JS) ---------- */
-.is-loading .card-media { background: var(--surface-2); }
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .card:hover { transform: none; }
   html { scroll-behavior: auto; }
 }
 
+/* Mobil: Filter bleiben angepinnt, Kategorien-Chips werden zur Wischleiste */
 @media (max-width: 768px) {
-  html { scroll-padding-top: 16px; }
-  .controls { position: static; backdrop-filter: none; }
+  html { scroll-padding-top: 140px; }
+  .controls { padding-block: 10px; gap: 8px; }
   .overview-head { flex-direction: column; }
+  .chips {
+    flex-wrap: nowrap; overflow-x: auto;
+    padding-bottom: 4px; margin-inline: -4px; padding-inline: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips button { flex: none; white-space: nowrap; }
 }
 @media (max-width: 560px) {
-  .controls { gap: 10px; }
+  .controls { gap: 8px; }
+  .controls-row { gap: 8px; }
   .segmented { display: flex; width: 100%; }
   .segmented button { flex: 1 1 0; padding: 9px 8px; text-align: center; }
+  .search-box { max-width: none; flex: 1 1 auto; }
+  .sort-box { flex: none; }
 }
 @media (max-width: 480px) {
   .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); }

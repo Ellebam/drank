@@ -6,15 +6,24 @@
   <meta name="color-scheme" content="light dark" />
   <title>Unsere Getränke</title>
   <meta name="description" content="Übersicht unserer Getränke – Bestand, Mengen und Sorten auf einen Blick." />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#faf7f1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#14120f" media="(prefers-color-scheme: dark)" />
   <meta property="og:title" content="Unsere Getränke" />
   <meta property="og:description" content="Übersicht unserer Getränke – Bestand, Mengen und Sorten auf einen Blick." />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:url" content="https://ellebam.github.io/drank/" />
+  <meta property="og:image" content="https://ellebam.github.io/drank/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Unsere Getränke – Bestand, Mengen und Sorten auf einen Blick" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E🥂%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preload" href="data/beverages.json" as="fetch" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="preload" href="assets/fonts/cormorant-garamond-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -30,23 +39,61 @@
   </header>
 
   <main class="wrap">
-    <!-- Überblick – reagiert auf Auswahl (Art, Kategorie, einzelnes Getränk) -->
+    <!-- Überblick – reagiert auf Auswahl (Art, Kategorie, Suche, einzelnes Getränk) -->
     <section class="overview" id="overview" aria-labelledby="stats-heading">
       <h2 id="stats-heading" class="visually-hidden">Überblick</h2>
-      <div id="overview-body"></div>
+      <div id="overview-body">
+        <!-- Skeleton, wird vom Rendering ersetzt -->
+        <div class="stat-grid" aria-hidden="true">
+          <div class="sk sk-stat"></div>
+          <div class="sk sk-stat"></div>
+          <div class="sk sk-stat"></div>
+          <div class="sk sk-stat"></div>
+        </div>
+      </div>
     </section>
 
-    <!-- Filter -->
-    <section class="controls" aria-label="Filter">
-      <div class="segmented" id="filter-alcohol" role="group" aria-label="Nach Art filtern"></div>
+    <!-- Filter, Suche & Sortierung -->
+    <section class="controls" aria-label="Filter und Suche">
+      <div class="controls-row">
+        <div class="segmented" id="filter-alcohol" role="group" aria-label="Nach Art filtern"></div>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+          <input type="search" id="search-input" placeholder="Suchen …" aria-label="Getränke durchsuchen" autocomplete="off" spellcheck="false" />
+        </div>
+        <label class="sort-box">
+          <span class="visually-hidden">Sortierung innerhalb der Kategorien</span>
+          <select id="sort-select">
+            <option value="standard">Sortierung: Standard</option>
+            <option value="menge">Nach Menge (Liter)</option>
+            <option value="anzahl">Nach Anzahl</option>
+            <option value="name">Nach Name (A–Z)</option>
+          </select>
+        </label>
+      </div>
       <div class="chips" id="filter-category" role="group" aria-label="Nach Kategorie filtern"></div>
     </section>
+
+    <!-- Hinweise zur Datenpflege (nur sichtbar, wenn die JSON Probleme hat) -->
+    <div id="data-warnings"></div>
 
     <!-- Bestand -->
     <section id="bestand">
       <p class="visually-hidden" id="sr-status" role="status" aria-live="polite"></p>
-      <div id="inventory"></div>
+      <div id="inventory">
+        <!-- Skeleton, wird vom Rendering ersetzt -->
+        <div aria-hidden="true">
+          <div class="sk sk-title"></div>
+          <div class="grid">
+            <div class="sk sk-card"></div>
+            <div class="sk sk-card"></div>
+            <div class="sk sk-card"></div>
+            <div class="sk sk-card"></div>
+          </div>
+        </div>
+      </div>
       <p class="empty" id="empty-state" hidden>Keine Getränke in dieser Auswahl.</p>
+      <noscript><p class="empty">Diese Seite braucht JavaScript, um den Bestand anzuzeigen.</p></noscript>
     </section>
   </main>
 
@@ -59,7 +106,7 @@
   <template id="card-template">
     <article class="card">
       <div class="card-media">
-        <img class="card-img" alt="" loading="lazy" decoding="async" />
+        <img class="card-img" alt="" loading="lazy" decoding="async" width="400" height="500" />
         <span class="qty-badge"></span>
       </div>
       <div class="card-body">

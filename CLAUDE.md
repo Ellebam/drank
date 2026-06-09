@@ -13,8 +13,11 @@ Der Nutzer schickt typischerweise ein **Foto eines Getränks** plus eine **Menge
    (deutscher Markt, metrisch).
 2. **Hochwertiges Bild aus dem Internet besorgen** — am besten der offizielle
    Produkt-Packshot (transparenter/weißer Hintergrund). **Niemals das Foto des
-   Nutzers verwenden.** Bild nach `assets/images/<id>.png|jpg` herunterladen
-   (z. B. `curl`).
+   Nutzers verwenden.** Bild herunterladen (z. B. `curl`), dann auf **max.
+   800 px** Kantenlänge verkleinern und als **WebP** nach
+   `assets/images/<id>.webp` speichern, z. B. mit Pillow:
+   `im = Image.open(src); im.thumbnail((800, 800)); im.save(dst, "WEBP", quality=82)`.
+   Kein unkomprimiertes PNG/JPG committen.
 3. **Eintrag pflegen** in `data/beverages.json`:
    - neues Getränk → Objekt zur Liste `beverages` hinzufügen
    - bekanntes Getränk, neue Menge → nur `quantity` ändern
@@ -44,7 +47,7 @@ Rohdaten pflegen.
   "unit": "Flasche",
   "unitPlural": "Flaschen",
   "quantity": 3,
-  "image": "assets/images/<id>.png",
+  "image": "assets/images/<id>.webp",
   "description": "1 kurzer Satz, Deutsch."
 }
 ```
@@ -69,12 +72,22 @@ Rohdaten pflegen.
 ## Struktur
 
 ```
-index.html                 # Gerüst
+index.html                 # Gerüst (inkl. Suche, Sortierung, Skeleton)
+manifest.webmanifest       # PWA: „Zum Homescreen hinzufügen“
+sw.js                      # Service Worker (Offline-Cache; HTML/CSS/JS/JSON
+                           # network-first, Bilder/Fonts cache-first)
 assets/css/styles.css      # Design (modern & minimal, responsiv, Light/Dark, WCAG-AA)
 assets/js/app.js           # rendert die Seite aus den Daten
-assets/images/             # hochwertige Produktbilder aus dem Internet
+assets/fonts/              # selbst gehostete Schriften — kein Google-Fonts-CDN!
+assets/icons/              # App-Icons (PWA / Apple Touch)
+assets/images/             # Produktbilder: WebP, max. 800 px Kantenlänge
+assets/og-image.png        # Vorschaubild fürs Teilen (WhatsApp & Co.)
 data/beverages.json        # >>> hier wird gepflegt <<<
 ```
+
+Die Seite validiert die JSON beim Laden und zeigt Pflege-Hinweise (fehlende
+Felder, doppelte ids, unbekannte Kategorien) als Banner an. Filter, Suche und
+ausgewähltes Getränk stehen im URL-Hash und sind als Link teilbar.
 
 ## Lokal testen (optional, am Rechner)
 

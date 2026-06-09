@@ -1,21 +1,34 @@
 /* ============================================================
    Unsere Getränke – Rendering
    Liest data/beverages.json und baut die Seite auf.
-   Der Überblick oben reagiert auf die Auswahl: Art, Kategorie
-   oder ein einzelnes angeklicktes Getränk.
+   Der Überblick oben reagiert auf die Auswahl: Art, Kategorie,
+   Suche oder ein einzelnes angeklicktes Getränk.
+   Auswahl & Suche stehen im URL-Hash und sind damit teilbar.
    ============================================================ */
 (() => {
   "use strict";
 
   const nf0 = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 0 });
+  const nf1 = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 1 });
   const nfL = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 0, maximumFractionDigits: 2 });
   const nfPct = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 0 });
 
-  const state = { data: null, filterAlcohol: "all", filterCategory: "all", selectedId: null };
+  const SORTS = ["standard", "menge", "anzahl", "name"];
+  const LS_GUESTS = "drank.guests";
+
+  const state = {
+    data: null,
+    filterAlcohol: "all",
+    filterCategory: "all",
+    selectedId: null,
+    search: "",
+    sort: "standard",
+    guests: null,
+  };
 
   const $ = (sel, root = document) => root.querySelector(sel);
 
-  const NBSP = " ";
+  const NBSP = " ";
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -62,12 +75,92 @@
       const res = await fetch("data/beverages.json");
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       state.data = await res.json();
+      readHash();
+      restoreGuests();
+      renderWarnings(validateData(state.data));
+      syncControls();
       render();
     } catch (err) {
       $("#inventory").innerHTML =
         `<p class="empty">Die Getränkedaten konnten gerade nicht geladen werden.<br>Bitte später erneut versuchen.</p>`;
       console.error(err);
     }
+  }
+
+  /* ============================================================
+     URL-Hash: Auswahl teilbar machen (#art=…&kat=…&q=…&drink=…)
+     ============================================================ */
+  function readHash() {
+    const p = new URLSearchParams(location.hash.slice(1));
+    const art = p.get("art");
+    state.filterAlcohol = (art === "alc" || art === "nonalc") ? art : "all";
+    state.filterCategory = p.get("kat") || "all";
+    state.search = (p.get("q") || "").trim();
+    state.sort = SORTS.includes(p.get("sort")) ? p.get("sort") : "standard";
+    state.selectedId = p.get("drink") || null;
+  }
+
+  function writeHash() {
+    const p = new URLSearchParams();
+    if (state.filterAlcohol !== "all") p.set("art", state.filterAlcohol);
+    if (state.filterCategory !== "all") p.set("kat", state.filterCategory);
+    if (state.search) p.set("q", state.search);
+    if (state.sort !== "standard") p.set("sort", state.sort);
+    if (state.selectedId) p.set("drink", state.selectedId);
+    const h = p.toString();
+    history.replaceState(null, "", h ? `#${h}` : location.pathname + location.search);
+  }
+
+  // Eingabefelder an den State angleichen (nach Laden / Hash-Navigation)
+  function syncControls() {
+    const search = $("#search-input");
+    if (search && search.value !== state.search) search.value = state.search;
+    const sort = $("#sort-select");
+    if (sort && sort.value !== state.sort) sort.value = state.sort;
+  }
+
+  /* ============================================================
+     Datenvalidierung – fängt Tippfehler beim Pflegen der JSON ab
+     ============================================================ */
+  function validateData(d) {
+    const problems = [];
+    if (!d || !Array.isArray(d.beverages)) {
+      problems.push("»beverages« fehlt oder ist keine Liste.");
+      return problems;
+    }
+    const order = Array.isArray(d.categoryOrder) ? d.categoryOrder : [];
+    const seen = new Set();
+    d.beverages.forEach((b, i) => {
+      const ref = b.name || b.id || `Eintrag ${i + 1}`;
+      for (const field of ["id", "name", "category"]) {
+        if (!b[field]) problems.push(`${ref}: Pflichtfeld »${field}« fehlt.`);
+      }
+      if (b.id && seen.has(b.id)) problems.push(`${ref}: id »${b.id}« ist doppelt vergeben.`);
+      if (b.id) seen.add(b.id);
+      if (!Number.isFinite(Number(b.quantity))) problems.push(`${ref}: »quantity« ist keine Zahl.`);
+      if (b.bottleVolume != null && !(Number(b.bottleVolume) > 0)) problems.push(`${ref}: »bottleVolume« muss eine Zahl > 0 sein (Liter).`);
+      if (b.bottleVolume == null) problems.push(`${ref}: »bottleVolume« fehlt (Liter pro Einheit).`);
+      if (b.alcoholic === true && b.abv == null) problems.push(`${ref}: »abv« fehlt (alkoholisch).`);
+      if (typeof b.alcoholic !== "boolean") problems.push(`${ref}: »alcoholic« fehlt oder ist nicht true/false.`);
+      if (b.category && order.length && !order.includes(b.category)) problems.push(`${ref}: Kategorie »${b.category}« steht nicht in categoryOrder.`);
+      if (!b.image) problems.push(`${ref}: »image« fehlt.`);
+    });
+    if (d.meta?.updated && !/^\d{4}-\d{2}-\d{2}$/.test(String(d.meta.updated))) {
+      problems.push(`meta.updated »${d.meta.updated}« ist nicht im Format YYYY-MM-DD.`);
+    }
+    return problems;
+  }
+
+  function renderWarnings(problems) {
+    const host = $("#data-warnings");
+    if (!host) return;
+    if (!problems.length) { host.innerHTML = ""; return; }
+    problems.forEach((p) => console.warn("[Daten]", p));
+    host.innerHTML = `
+      <details class="data-warning">
+        <summary>⚠️ ${problems.length} ${problems.length === 1 ? "Hinweis" : "Hinweise"} zu data/beverages.json</summary>
+        <ul>${problems.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
+      </details>`;
   }
 
   /* ---------- Aggregation ---------- */
@@ -77,21 +170,23 @@
       einheiten: 0,
       liter: 0,
       gläser: 0,
-      byType: { alc: { units: 0, liter: 0 }, nonalc: { units: 0, liter: 0 } },
+      byType: { alc: { units: 0, liter: 0, gläser: 0 }, nonalc: { units: 0, liter: 0, gläser: 0 } },
       byCategory: {},
     };
     for (const b of items) {
       const q = Number(b.quantity) || 0;
       const vol = Number(b.bottleVolume) || 0;
       const liter = q * vol;
+      const gläser = liter / servingSize(b.category);
       totals.einheiten += q;
       totals.liter += liter;
-      totals.gläser += liter / servingSize(b.category);
+      totals.gläser += gläser;
       const t = b.alcoholic ? "alc" : "nonalc";
       totals.byType[t].units += q;
       totals.byType[t].liter += liter;
+      totals.byType[t].gläser += gläser;
       const c = (totals.byCategory[b.category] ||= { units: 0, liter: 0, sorten: 0, gläser: 0 });
-      c.units += q; c.liter += liter; c.sorten += 1; c.gläser += liter / servingSize(b.category);
+      c.units += q; c.liter += liter; c.sorten += 1; c.gläser += gläser;
     }
     return totals;
   }
@@ -103,23 +198,35 @@
     return [...inOrder, ...rest];
   }
 
-  /* ---------- Aktuelle Auswahl (Art + Kategorie, ohne Einzel-Auswahl) ---------- */
+  /* ---------- Aktuelle Auswahl (Art + Kategorie + Suche) ---------- */
+  function matchesSearch(b, q) {
+    if (!q) return true;
+    const hay = `${b.name} ${b.brand || ""} ${b.category || ""} ${b.description || ""}`.toLowerCase();
+    return q.toLowerCase().split(/\s+/).every(w => hay.includes(w));
+  }
+
   function selectionItems() {
     const all = Array.isArray(state.data?.beverages) ? state.data.beverages : [];
     return all.filter(b => {
       if (state.filterAlcohol === "alc" && !b.alcoholic) return false;
       if (state.filterAlcohol === "nonalc" && b.alcoholic) return false;
       if (state.filterCategory !== "all" && b.category !== state.filterCategory) return false;
+      if (!matchesSearch(b, state.search)) return false;
       return true;
     });
   }
 
   function selectionLabel() {
-    if (state.filterCategory !== "all") return state.filterCategory;
-    if (state.filterAlcohol === "alc") return "Alkoholische Getränke";
-    if (state.filterAlcohol === "nonalc") return "Alkoholfreie Getränke";
-    return "Gesamter Bestand";
+    const parts = [];
+    if (state.filterCategory !== "all") parts.push(state.filterCategory);
+    else if (state.filterAlcohol === "alc") parts.push("Alkoholische Getränke");
+    else if (state.filterAlcohol === "nonalc") parts.push("Alkoholfreie Getränke");
+    if (state.search) parts.push(`Suche „${state.search}“`);
+    return parts.join(" · ") || "Gesamter Bestand";
   }
+
+  const isFiltered = () =>
+    state.filterAlcohol !== "all" || state.filterCategory !== "all" || state.search !== "";
 
   /* ============================================================
      Überblick (oberer Bereich) – reagiert auf die Auswahl
@@ -146,14 +253,12 @@
   function overviewSummary() {
     const items = selectionItems();
     const t = aggregate(items);
-    const cats = Object.keys(t.byCategory).length;
-    const isFiltered = state.filterAlcohol !== "all" || state.filterCategory !== "all";
 
     const tiles = [
       { value: nf0.format(t.sorten), label: t.sorten === 1 ? "Sorte" : "Sorten" },
       { value: nf0.format(t.einheiten), label: "Flaschen & Einheiten" },
       { value: nfL.format(t.liter), unit: "L", label: "Gesamtmenge" },
-      { value: "≈ " + nf0.format(Math.round(t.gläser)), label: "Gläser", hint: "geschätzte Portionen" },
+      { value: "≈ " + nf0.format(Math.round(t.gläser)), label: "Gläser", hint: "geschätzte Portionen" },
     ];
 
     const head = `
@@ -162,14 +267,47 @@
           <p class="overview-eyebrow">Überblick</p>
           <p class="overview-title">${esc(selectionLabel())}</p>
         </div>
-        ${isFiltered ? `<button type="button" class="overview-reset" data-reset>Ganze Auswahl<span aria-hidden="true"> ↺</span></button>` : ""}
+        ${isFiltered() ? `<button type="button" class="overview-reset" data-reset>Ganze Auswahl<span aria-hidden="true"> ↺</span></button>` : ""}
       </div>`;
 
     if (!items.length) {
       return head + `<p class="overview-empty">Für diese Auswahl gibt es derzeit keine Getränke.</p>`;
     }
 
-    return head + statTiles(tiles) + composition(t, items);
+    return head + statTiles(tiles) + plannerBlock(t) + composition(t, items);
+  }
+
+  /* ---------- „Reicht das?“ – Portionen pro Gast ---------- */
+  function restoreGuests() {
+    try {
+      const v = parseInt(localStorage.getItem(LS_GUESTS), 10);
+      if (Number.isFinite(v) && v > 0) state.guests = v;
+    } catch { /* localStorage gesperrt -> einfach ohne Vorbelegung */ }
+  }
+
+  function plannerText(t) {
+    const g = Number(state.guests) || 0;
+    if (!g) return "Anzahl der Gäste eingeben – die Seite rechnet aus, wie viel pro Person da ist.";
+    const per = t.gläser / g;
+    let s = `≈ <strong>${nf1.format(per)} Gläser</strong> und <strong>${fmtLiter(t.liter / g)}</strong> pro Person`;
+    const alc = t.byType.alc, non = t.byType.nonalc;
+    if (alc.liter > 0 && non.liter > 0) {
+      s += ` – davon ≈ ${nf1.format(alc.gläser / g)} alkoholisch, ${nf1.format(non.gläser / g)} alkoholfrei`;
+    }
+    return s + ".";
+  }
+
+  function plannerBlock(t) {
+    return `
+      <div class="planner">
+        <p class="comp-title">Reicht das?</p>
+        <div class="planner-row">
+          <label for="guest-input">Gäste</label>
+          <input id="guest-input" type="number" min="1" max="2000" step="1" inputmode="numeric"
+                 placeholder="z. B. 80" value="${state.guests ?? ""}" />
+          <p class="planner-result" id="planner-result">${plannerText(t)}</p>
+        </div>
+      </div>`;
   }
 
   /* ---------- Zusammensetzung: gestapelte Anteils-Balken ---------- */
@@ -217,14 +355,17 @@
 
   function stackedBlock(title, total, segs) {
     const sum = total > 0 ? total : segs.reduce((s, x) => s + x.liter, 0) || 1;
-    const segHtml = segs.filter(s => s.liter > 0).map(s => {
+    const used = segs.filter(s => s.liter > 0);
+    const segHtml = used.map((s, i) => {
       const pct = (s.liter / sum) * 100;
-      return `<span class="comp-seg" style="width:${pct}%;background:${s.color}"
-                title="${esc(s.label)}: ${fmtLiter(s.liter)} · ${nfPct.format(Math.round(pct))} %"></span>`;
+      const info = `${s.label}: ${nfL.format(s.liter)} L · ${nfPct.format(Math.round(pct))} %`;
+      // Buttons: per Tipp/Klick wird der Anteil in der Legende hervorgehoben
+      return `<button type="button" class="comp-seg" data-seg="${i}" style="width:${pct}%;background:${s.color}"
+                title="${esc(info)}" aria-label="${esc(info)}"></button>`;
     }).join("");
-    const legend = segs.filter(s => s.liter > 0).map(s => {
+    const legend = used.map((s, i) => {
       const pct = (s.liter / sum) * 100;
-      return `<li class="comp-item">
+      return `<li class="comp-item" data-leg="${i}">
         <span class="comp-swatch" style="background:${s.color}"></span>
         <span class="comp-label">${esc(s.label)}</span>
         <span class="comp-val">${fmtLiter(s.liter)} · ${nfPct.format(Math.round(pct))}${NBSP}%</span>
@@ -233,9 +374,23 @@
     return `
       <div class="comp-block">
         <p class="comp-title">${esc(title)}</p>
-        <div class="comp-bar" role="img" aria-label="${esc(title)}">${segHtml}</div>
+        <div class="comp-bar" role="group" aria-label="${esc(title)}">${segHtml}</div>
         <ul class="comp-legend">${legend}</ul>
       </div>`;
+  }
+
+  // Tipp/Klick auf ein Balkensegment hebt den Eintrag in der Legende hervor
+  function toggleSegment(seg) {
+    const block = seg.closest(".comp-block");
+    if (!block) return;
+    const wasActive = seg.classList.contains("is-active");
+    block.querySelectorAll(".comp-seg").forEach(s => s.classList.remove("is-active", "is-dim"));
+    block.querySelectorAll(".comp-item").forEach(l => l.classList.remove("is-hl"));
+    if (wasActive) return;
+    seg.classList.add("is-active");
+    block.querySelectorAll(".comp-seg").forEach(s => { if (s !== seg) s.classList.add("is-dim"); });
+    const leg = block.querySelector(`.comp-item[data-leg="${seg.dataset.seg}"]`);
+    if (leg) leg.classList.add("is-hl");
   }
 
   /* ---------- Einzel-Getränk im Überblick ---------- */
@@ -250,12 +405,12 @@
       { value: nf0.format(q), label: plural(q, b) },
       vol ? { value: nfL.format(vol), unit: "L", label: "Inhalt je Einheit" } : null,
       { value: nfL.format(liter), unit: "L", label: "Gesamtmenge" },
-      { value: "≈ " + nf0.format(gläser), label: "Gläser", hint: "geschätzte Portionen" },
+      { value: "≈ " + nf0.format(gläser), label: "Gläser", hint: "geschätzte Portionen" },
       (b.alcoholic && b.abv != null) ? { value: nfL.format(b.abv), unit: "% vol", label: "Alkohol" } : null,
     ].filter(Boolean);
 
     const imgHtml = b.image
-      ? `<img src="${esc(b.image)}" alt="${esc(b.name)}" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'" />`
+      ? `<img src="${esc(b.image)}" alt="${esc(b.name)}" loading="lazy" decoding="async" width="400" height="500" onerror="this.style.visibility='hidden'" />`
       : `<span class="detail-fallback" aria-hidden="true">🍾</span>`;
 
     return `
@@ -300,6 +455,13 @@
   /* ============================================================
      Bestand
      ============================================================ */
+  const SORTERS = {
+    menge: (a, b) => ((Number(b.quantity) || 0) * (Number(b.bottleVolume) || 0)) -
+                     ((Number(a.quantity) || 0) * (Number(a.bottleVolume) || 0)),
+    anzahl: (a, b) => (Number(b.quantity) || 0) - (Number(a.quantity) || 0),
+    name: (a, b) => String(a.name).localeCompare(String(b.name), "de"),
+  };
+
   function renderInventory(announce = false) {
     const items = selectionItems();
     const host = $("#inventory");
@@ -317,7 +479,8 @@
     for (const b of items) (byCat[b.category] ||= []).push(b);
 
     for (const cat of orderedCategories(Object.keys(byCat))) {
-      const list = byCat[cat];
+      let list = byCat[cat];
+      if (SORTERS[state.sort]) list = [...list].sort(SORTERS[state.sort]);
       const agg = aggregate(list);
       const group = document.createElement("section");
       group.className = "cat-group";
@@ -417,6 +580,7 @@
 
   function selectItem(id) {
     state.selectedId = (state.selectedId === id) ? null : id;
+    writeHash();
     refreshSelectionUI();
     if (state.selectedId) {
       const ov = $("#overview");
@@ -428,21 +592,27 @@
 
   function applyFilter() {
     const all = Array.isArray(state.data?.beverages) ? state.data.beverages : [];
+    writeHash();
     renderOverview();
     renderFilters(all);
     renderInventory(true);
   }
 
   document.addEventListener("click", (e) => {
+    const seg = e.target.closest(".comp-seg");
     const reset = e.target.closest("[data-reset]");
     const a = e.target.closest("[data-alc]");
     const c = e.target.closest("[data-cat]");
     const cardEl = e.target.closest("[data-card-id]");
 
-    if (reset) {
+    if (seg) {
+      toggleSegment(seg);
+    } else if (reset) {
       state.selectedId = null;
       state.filterAlcohol = "all";
       state.filterCategory = "all";
+      state.search = "";
+      syncControls();
       applyFilter();
     } else if (a) {
       state.selectedId = null;
@@ -465,6 +635,54 @@
     e.preventDefault();
     selectItem(cardEl.dataset.cardId);
   });
+
+  // Suche (entprellt) + Gäste-Rechner
+  let searchTimer;
+  document.addEventListener("input", (e) => {
+    if (e.target.id === "search-input") {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        state.search = e.target.value.trim();
+        state.selectedId = null;
+        applyFilter();
+      }, 150);
+    } else if (e.target.id === "guest-input") {
+      const v = parseInt(e.target.value, 10);
+      state.guests = (Number.isFinite(v) && v > 0) ? Math.min(v, 2000) : null;
+      try {
+        if (state.guests) localStorage.setItem(LS_GUESTS, String(state.guests));
+        else localStorage.removeItem(LS_GUESTS);
+      } catch { /* localStorage gesperrt -> Wert gilt nur für diese Sitzung */ }
+      const out = $("#planner-result");
+      if (out) out.innerHTML = plannerText(aggregate(selectionItems()));
+    }
+  });
+
+  document.addEventListener("change", (e) => {
+    if (e.target.id === "sort-select") {
+      state.sort = SORTS.includes(e.target.value) ? e.target.value : "standard";
+      writeHash();
+      renderInventory(true);
+    }
+  });
+
+  // Vor/Zurück im Browser oder manuell geänderter Hash
+  window.addEventListener("hashchange", () => {
+    if (!state.data) return;
+    readHash();
+    syncControls();
+    renderOverview();
+    renderFilters(state.data.beverages || []);
+    renderInventory(true);
+  });
+
+  // Offline-Fähigkeit (Service Worker) – nur über HTTPS bzw. lokal
+  if ("serviceWorker" in navigator &&
+      (location.protocol === "https:" || ["localhost", "127.0.0.1"].includes(location.hostname))) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch((err) => console.warn("SW:", err));
+    });
+  }
 
   load();
 })();
