@@ -24,9 +24,22 @@
       "abv": 11,
       "bottleVolume": 0.75,
       "unit": "Flasche",
-      "quantity": 15,
+      "quantity": 21,
       "image": "assets/images/mionetto-prosecco-doc-treviso-brut.png",
       "description": "Frischer, lebhafter Prosecco mit feiner Perlage und Noten von Apfel, weißem Pfirsich und einem Hauch Honig. Trocken im Abgang."
+    },
+    {
+      "id": "aperol-aperitivo",
+      "name": "Aperol Aperitivo",
+      "brand": "Aperol",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 11,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 37,
+      "image": "assets/images/aperol-aperitivo.png",
+      "description": "Leuchtend orangeroter Aperitif mit fruchtig-bitterer Note – die Basis für den klassischen Aperol Spritz."
     }
   ]
 }
