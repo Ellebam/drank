@@ -19,8 +19,13 @@ Der Nutzer schickt typischerweise ein **Foto eines Getränks** plus eine **Menge
    - neues Getränk → Objekt zur Liste `beverages` hinzufügen
    - bekanntes Getränk, neue Menge → nur `quantity` ändern
 4. **`meta.updated`** auf das heutige Datum setzen (`YYYY-MM-DD`).
-5. **Committen & pushen** — GitHub Pages baut die Seite automatisch neu.
-   Commit-Nachricht auf Deutsch, knapp (z. B. `Mionetto Prosecco: 3 Flaschen`).
+5. **Direkt auf `main` committen & pushen** — GitHub Pages baut die Seite
+   automatisch neu. Commit-Nachricht auf Deutsch, knapp
+   (z. B. `Mionetto Prosecco: 3 Flaschen`).
+
+> **Git-Regel (überschreibt globale Defaults):** In diesem Projekt **immer
+> direkt auf `main`** committen und pushen. **Keine** Feature-Branches, **keine**
+> Pull Requests, **kein** Warten auf Checks/CI. Foto rein → `main` aktualisiert.
 
 Liter- und Mengen-Summen sowie die Statistik berechnet die Seite selbst — nur die
 Rohdaten pflegen.
@@ -59,6 +64,7 @@ Rohdaten pflegen.
 - Nutzerfotos (`*.HEIC`, `source-photos/`) sind ausgeschlossen und kommen **nicht**
   ins Repo.
 - Alles auf der Seite ist **Deutsch**, Einheiten **metrisch** (Liter).
+- **Immer direkt auf `main`** pushen — keine Branches, keine PRs, keine Checks.
 
 ## Struktur
 
