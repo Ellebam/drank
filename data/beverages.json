@@ -196,6 +196,32 @@
       "quantity": 1,
       "image": "assets/images/bacardi-carta-blanca.png",
       "description": "Milder, klarer weißer Rum – vielseitig für Cocktails wie Mojito, Cuba Libre oder Daiquiri."
+    },
+    {
+      "id": "baldauf-muschelkalk-bacchus-feinfruchtig",
+      "name": "Baldauf Muschelkalk Bacchus feinfruchtig",
+      "brand": "Weingut Baldauf",
+      "category": "Wein",
+      "alcoholic": true,
+      "abv": 11.5,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 1,
+      "image": "assets/images/baldauf-muschelkalk-bacchus-feinfruchtig.jpg",
+      "description": "Feinfruchtiger Frankenwein aus Bacchus-Trauben auf Muschelkalk – Noten von Holunderblüte, Papaya und Zitrus, halbtrocken."
+    },
+    {
+      "id": "9-mile-vodka",
+      "name": "9 Mile Vodka",
+      "brand": "9 Mile",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 37.5,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/9-mile-vodka.jpg",
+      "description": "Milder deutscher Premium-Wodka, durch Granitstein gefiltert – pur, als Longdrink oder im Cocktail."
     }
   ]
 }
