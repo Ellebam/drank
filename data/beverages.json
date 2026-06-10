@@ -2,7 +2,7 @@
   "meta": {
     "title": "Unsere Getränke",
     "subtitle": "Übersicht unserer Getränke – was da ist, wie viel und in welcher Menge.",
-    "updated": "2026-06-09"
+    "updated": "2026-06-10"
   },
   "categoryOrder": [
     "Sekt & Prosecco",
@@ -349,6 +349,7 @@
       "bottleVolume": 0.75,
       "unit": "Flasche",
       "quantity": 3,
+      "image": "assets/images/divino-franken-scheurebe-halbtrocken.webp",
       "description": "Aromatischer, halbtrockener Frankenwein aus der Scheurebe – Noten von schwarzer Johannisbeere und Pfirsich, ausgezeichnet mit Franken Silber."
     },
     {
