@@ -2,7 +2,7 @@
   "meta": {
     "title": "Unsere Getränke",
     "subtitle": "Übersicht unserer Getränke – was da ist, wie viel und in welcher Menge.",
-    "updated": "2026-06-10"
+    "updated": "2026-06-24"
   },
   "categoryOrder": [
     "Sekt & Prosecco",
@@ -38,7 +38,7 @@
       "abv": 11,
       "bottleVolume": 0.7,
       "unit": "Flasche",
-      "quantity": 37,
+      "quantity": 38,
       "image": "assets/images/aperol-aperitivo.webp",
       "description": "Leuchtend orangeroter Aperitif mit fruchtig-bitterer Note – die Basis für den klassischen Aperol Spritz."
     },
@@ -246,7 +246,7 @@
       "abv": 15,
       "bottleVolume": 0.7,
       "unit": "Flasche",
-      "quantity": 9,
+      "quantity": 10,
       "image": "assets/images/ramazzotti-aperitivo-rosato.webp",
       "description": "Fruchtig-frischer Aperitif mit Hibiskus und Orangenblüte – ideal als Spritz mit Prosecco."
     },
@@ -377,6 +377,70 @@
       "quantity": 8,
       "image": "assets/images/giolano-prosecco-frizzante.webp",
       "description": "Leichter, fruchtiger Frizzante-Prosecco aus Italien mit feiner Perlage – frisch und unkompliziert als Aperitif."
+    },
+    {
+      "id": "mumm-jahrgangssekt-dry",
+      "name": "Mumm & Co. Jahrgangssekt Dry",
+      "brand": "Mumm & Co.",
+      "category": "Sekt & Prosecco",
+      "alcoholic": true,
+      "abv": 11.5,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/mumm-jahrgangssekt-dry.webp",
+      "description": "Eleganter deutscher Jahrgangssekt mit feiner Perlage und dezenter Chardonnay-Note – fruchtig-trocken und harmonisch."
+    },
+    {
+      "id": "casella-amaretto",
+      "name": "Casella Amaretto",
+      "brand": "Casella",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 21.5,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 1,
+      "image": "assets/images/casella-amaretto.webp",
+      "description": "Italienischer Mandellikör mit weichem, süßem Aroma – pur auf Eis, im Kaffee oder in Cocktails und Desserts."
+    },
+    {
+      "id": "illusionist-dry-gin",
+      "name": "The Illusionist Dry Gin",
+      "brand": "The Illusionist",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 45,
+      "bottleVolume": 0.5,
+      "unit": "Flasche",
+      "quantity": 1,
+      "image": "assets/images/illusionist-dry-gin.webp",
+      "description": "Tiefblauer Münchner Dry Gin mit 16 Botanicals, der sich im Gin Tonic durch die Blaue Klitorie von Blau zu Rosa verfärbt."
+    },
+    {
+      "id": "illusionist-masquerade-alkoholfrei",
+      "name": "The Illusionist Masquerade (alkoholfrei)",
+      "brand": "The Illusionist",
+      "category": "Spirituosen",
+      "alcoholic": false,
+      "bottleVolume": 0.5,
+      "unit": "Flasche",
+      "quantity": 1,
+      "image": "assets/images/illusionist-masquerade.webp",
+      "description": "Alkoholfreie Gin-Alternative mit Wacholder, Ingwer und Rosmarin – wechselt im Longdrink die Farbe von Blau zu Rosa."
+    },
+    {
+      "id": "bombay-sapphire-london-dry-gin",
+      "name": "Bombay Sapphire London Dry Gin",
+      "brand": "Bombay Sapphire",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 40,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 2,
+      "image": "assets/images/bombay-sapphire-london-dry-gin.webp",
+      "description": "Klassischer London Dry Gin mit zehn Botanicals, durch Vapour-Infusion sanft destilliert – wacholderbetont und ausgewogen für Gin Tonic."
     }
   ]
 }
