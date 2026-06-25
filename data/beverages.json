@@ -480,6 +480,54 @@
       "quantity": 1,
       "image": "assets/images/bacardi-razz.webp",
       "description": "Weißer Rum mit natürlichem Himbeeraroma – fruchtig-spritzig für Cocktails und Longdrinks, hier in der 1,5-l-Magnum."
+    },
+    {
+      "id": "coca-cola-zero",
+      "name": "Coca-Cola Zero",
+      "brand": "Coca-Cola",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 36,
+      "image": "assets/images/coca-cola-zero.webp",
+      "description": "Klassischer Cola-Geschmack ganz ohne Zucker und Kalorien – spritzig und koffeinhaltig."
+    },
+    {
+      "id": "sprite-zero",
+      "name": "Sprite Zero",
+      "brand": "Sprite",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 36,
+      "image": "assets/images/sprite-zero.webp",
+      "description": "Klare Zitronen-Limetten-Limonade ohne Zucker – erfrischend und spritzig."
+    },
+    {
+      "id": "mezzo-mix-zero",
+      "name": "Mezzo Mix Zero",
+      "brand": "Mezzo Mix",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 30,
+      "image": "assets/images/mezzo-mix-zero.webp",
+      "description": "Cola küsst Orange – das beliebte Cola-Mix-Getränk ohne Zucker."
+    },
+    {
+      "id": "fanta-zero-orange",
+      "name": "Fanta Orange Zero",
+      "brand": "Fanta",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/fanta-zero-orange.webp",
+      "description": "Fruchtig-spritzige Orangenlimonade ohne Zucker – voller Fanta-Geschmack."
     }
   ]
 }
