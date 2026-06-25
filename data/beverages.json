@@ -528,6 +528,42 @@
       "quantity": 6,
       "image": "assets/images/fanta-zero-orange.webp",
       "description": "Fruchtig-spritzige Orangenlimonade ohne Zucker – voller Fanta-Geschmack."
+    },
+    {
+      "id": "granini-pfirsich",
+      "name": "Granini Trinkgenuss Pfirsich",
+      "brand": "Granini",
+      "category": "Säfte",
+      "alcoholic": false,
+      "bottleVolume": 1.0,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/granini-pfirsich.webp",
+      "description": "Cremig-fruchtiger Pfirsich-Nektar aus reinem Pfirsichmark – samtig und kräftig im Geschmack."
+    },
+    {
+      "id": "granini-banane",
+      "name": "Granini Trinkgenuss Banane",
+      "brand": "Granini",
+      "category": "Säfte",
+      "alcoholic": false,
+      "bottleVolume": 1.0,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/granini-banane.webp",
+      "description": "Cremiger Bananen-Nektar aus tropischem Fruchtmark – mild, süß und vollmundig."
+    },
+    {
+      "id": "granini-pink-grapefruit",
+      "name": "Granini Trinkgenuss Pink Grapefruit",
+      "brand": "Granini",
+      "category": "Säfte",
+      "alcoholic": false,
+      "bottleVolume": 1.0,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/granini-pink-grapefruit.webp",
+      "description": "Fruchtig-herber Nektar aus sonnengereiften Pink Grapefruits – angenehm mild-süß."
     }
   ]
 }
