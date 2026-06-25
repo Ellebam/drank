@@ -2,7 +2,7 @@
   "meta": {
     "title": "Unsere Getränke",
     "subtitle": "Übersicht unserer Getränke – was da ist, wie viel und in welcher Menge.",
-    "updated": "2026-06-24"
+    "updated": "2026-06-25"
   },
   "categoryOrder": [
     "Sekt & Prosecco",
@@ -441,6 +441,45 @@
       "quantity": 2,
       "image": "assets/images/bombay-sapphire-london-dry-gin.webp",
       "description": "Klassischer London Dry Gin mit zehn Botanicals, durch Vapour-Infusion sanft destilliert – wacholderbetont und ausgewogen für Gin Tonic."
+    },
+    {
+      "id": "lillet-blanc",
+      "name": "Lillet Blanc",
+      "brand": "Lillet",
+      "category": "Aperitif & Spritz",
+      "alcoholic": true,
+      "abv": 17,
+      "bottleVolume": 0.75,
+      "unit": "Flasche",
+      "quantity": 12,
+      "image": "assets/images/lillet-blanc.webp",
+      "description": "Französischer Aperitif auf Weinbasis mit feinen Zitrus- und Honignoten – eisgekühlt mit Tonic als Lillet Vive."
+    },
+    {
+      "id": "jack-daniels-old-no-7",
+      "name": "Jack Daniel's Old No. 7 Tennessee Whiskey",
+      "brand": "Jack Daniel's",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 40,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 2,
+      "image": "assets/images/jack-daniels-old-no-7.webp",
+      "description": "Charakterstarker Tennessee Whiskey mit Noten von Vanille, Karamell und Eiche – pur, on the rocks oder als Whiskey-Cola."
+    },
+    {
+      "id": "bacardi-razz",
+      "name": "Bacardí Razz",
+      "brand": "Bacardí",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 32,
+      "bottleVolume": 1.5,
+      "unit": "Flasche",
+      "quantity": 1,
+      "image": "assets/images/bacardi-razz.webp",
+      "description": "Weißer Rum mit natürlichem Himbeeraroma – fruchtig-spritzig für Cocktails und Longdrinks, hier in der 1,5-l-Magnum."
     }
   ]
 }
