@@ -577,6 +577,82 @@
       "quantity": 2,
       "image": "assets/images/paulaner-weissbier-zitrone-alkoholfrei.webp",
       "description": "Alkoholfreies Weißbier mit spritziger Zitrone – Radler-Art und erfrischend, ganz ohne Alkohol (Kasten mit 20 × 0,5-l-Flaschen)."
+    },
+    {
+      "id": "paulaner-muenchner-hell",
+      "name": "Paulaner Original Münchner Hell",
+      "brand": "Paulaner",
+      "category": "Bier",
+      "alcoholic": true,
+      "abv": 4.9,
+      "bottleVolume": 10.0,
+      "unit": "Kasten",
+      "unitPlural": "Kästen",
+      "quantity": 1,
+      "image": "assets/images/paulaner-muenchner-hell.webp",
+      "description": "Untergäriges Münchner Helles – mild-malzig, süffig und ausgewogen mit feiner Hopfennote (Kasten mit 20 × 0,5-l-Flaschen)."
+    },
+    {
+      "id": "paulaner-hefe-weissbier-naturtrueb",
+      "name": "Paulaner Hefe-Weißbier Naturtrüb",
+      "brand": "Paulaner",
+      "category": "Bier",
+      "alcoholic": true,
+      "abv": 5.5,
+      "bottleVolume": 10.0,
+      "unit": "Kasten",
+      "unitPlural": "Kästen",
+      "quantity": 1,
+      "image": "assets/images/paulaner-hefe-weissbier-naturtrueb.webp",
+      "description": "Naturtrübes bayerisches Weißbier mit fruchtigen Aromen von Banane und Nelke – vollmundig und spritzig (Kasten mit 20 × 0,5-l-Flaschen)."
+    },
+    {
+      "id": "schweppes-indian-tonic-water-zero",
+      "name": "Schweppes Indian Tonic Water Zero",
+      "brand": "Schweppes",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 27,
+      "image": "assets/images/schweppes-indian-tonic-water-zero.webp",
+      "description": "Klassisch herbes Tonic Water mit feiner Chininnote – zuckerfrei und ideal als Filler für Gin Tonic."
+    },
+    {
+      "id": "schweppes-original-wild-berry-zero",
+      "name": "Schweppes Original Wild Berry Zero",
+      "brand": "Schweppes",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 18,
+      "image": "assets/images/schweppes-original-wild-berry-zero.webp",
+      "description": "Fruchtig-herbe Waldbeeren-Limonade ohne Zucker – spritzig pur oder als Mixer."
+    },
+    {
+      "id": "schweppes-original-wild-berry",
+      "name": "Schweppes Original Wild Berry",
+      "brand": "Schweppes",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 12,
+      "image": "assets/images/schweppes-original-wild-berry.webp",
+      "description": "Fruchtig-herbe Waldbeeren-Limonade mit feiner Bitternote – spritzig pur oder als Mixer."
+    },
+    {
+      "id": "schweppes-american-ginger-ale-zero",
+      "name": "Schweppes American Ginger Ale Zero",
+      "brand": "Schweppes",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 3,
+      "image": "assets/images/schweppes-american-ginger-ale-zero.webp",
+      "description": "Mild-würziges Ginger Ale mit feiner Ingwernote – zuckerfrei, pur oder als Mixer."
     }
   ]
 }
