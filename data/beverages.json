@@ -2,7 +2,7 @@
   "meta": {
     "title": "Unsere Getränke",
     "subtitle": "Übersicht unserer Getränke – was da ist, wie viel und in welcher Menge.",
-    "updated": "2026-06-25"
+    "updated": "2026-07-06"
   },
   "categoryOrder": [
     "Sekt & Prosecco",
@@ -513,7 +513,7 @@
       "alcoholic": false,
       "bottleVolume": 1.25,
       "unit": "Flasche",
-      "quantity": 30,
+      "quantity": 24,
       "image": "assets/images/mezzo-mix-zero.webp",
       "description": "Cola küsst Orange – das beliebte Cola-Mix-Getränk ohne Zucker."
     },
@@ -564,6 +564,19 @@
       "quantity": 6,
       "image": "assets/images/granini-pink-grapefruit.webp",
       "description": "Fruchtig-herber Nektar aus sonnengereiften Pink Grapefruits – angenehm mild-süß."
+    },
+    {
+      "id": "paulaner-weissbier-zitrone-alkoholfrei",
+      "name": "Paulaner Weißbier-Zitrone Alkoholfrei 0,0 %",
+      "brand": "Paulaner",
+      "category": "Bier",
+      "alcoholic": false,
+      "bottleVolume": 10.0,
+      "unit": "Kasten",
+      "unitPlural": "Kästen",
+      "quantity": 2,
+      "image": "assets/images/paulaner-weissbier-zitrone-alkoholfrei.webp",
+      "description": "Alkoholfreies Weißbier mit spritziger Zitrone – Radler-Art und erfrischend, ganz ohne Alkohol (Kasten mit 20 × 0,5-l-Flaschen)."
     }
   ]
 }
