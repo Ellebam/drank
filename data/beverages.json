@@ -650,9 +650,33 @@
       "alcoholic": false,
       "bottleVolume": 1.25,
       "unit": "Flasche",
-      "quantity": 3,
+      "quantity": 5,
       "image": "assets/images/schweppes-american-ginger-ale-zero.webp",
       "description": "Mild-würziges Ginger Ale mit feiner Ingwernote – zuckerfrei, pur oder als Mixer."
+    },
+    {
+      "id": "schweppes-indian-tonic-water",
+      "name": "Schweppes Indian Tonic Water",
+      "brand": "Schweppes",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/schweppes-indian-tonic-water.webp",
+      "description": "Klassisch herbes Tonic Water mit feiner Chininnote – der Filler-Klassiker für Gin Tonic."
+    },
+    {
+      "id": "schweppes-sunny-white-peach",
+      "name": "Schweppes Sunny White Peach",
+      "brand": "Schweppes",
+      "category": "Softdrinks",
+      "alcoholic": false,
+      "bottleVolume": 1.25,
+      "unit": "Flasche",
+      "quantity": 6,
+      "image": "assets/images/schweppes-white-peach.webp",
+      "description": "Spritzige Limonade mit fruchtigem Aroma von weißem Pfirsich – leicht herb und erfrischend."
     }
   ]
 }
