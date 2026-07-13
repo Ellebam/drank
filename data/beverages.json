@@ -2,7 +2,7 @@
   "meta": {
     "title": "Unsere Getränke",
     "subtitle": "Übersicht unserer Getränke – was da ist, wie viel und in welcher Menge.",
-    "updated": "2026-07-06"
+    "updated": "2026-07-13"
   },
   "categoryOrder": [
     "Sekt & Prosecco",
@@ -677,6 +677,32 @@
       "quantity": 6,
       "image": "assets/images/schweppes-white-peach.webp",
       "description": "Spritzige Limonade mit fruchtigem Aroma von weißem Pfirsich – leicht herb und erfrischend."
+    },
+    {
+      "id": "tanqueray-london-dry-gin",
+      "name": "Tanqueray London Dry Gin",
+      "brand": "Tanqueray",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 43.1,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 1,
+      "image": "assets/images/tanqueray-london-dry-gin.webp",
+      "description": "Klassischer London Dry Gin mit vier Botanicals – wacholderbetont und perfekt ausbalanciert für den Gin Tonic."
+    },
+    {
+      "id": "tanqueray-blackcurrant-royale",
+      "name": "Tanqueray Blackcurrant Royale Distilled Gin",
+      "brand": "Tanqueray",
+      "category": "Spirituosen",
+      "alcoholic": true,
+      "abv": 41.3,
+      "bottleVolume": 0.7,
+      "unit": "Flasche",
+      "quantity": 1,
+      "image": "assets/images/tanqueray-blackcurrant-royale.webp",
+      "description": "Fruchtiger Gin mit französischer schwarzer Johannisbeere und Vanille – tiefviolett und intensiv beerig für farbenfrohe Longdrinks."
     }
   ]
 }
