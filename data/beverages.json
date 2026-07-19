@@ -2,7 +2,7 @@
   "meta": {
     "title": "Unsere Getränke",
     "subtitle": "Übersicht unserer Getränke – was da ist, wie viel und in welcher Menge.",
-    "updated": "2026-07-13"
+    "updated": "2026-07-19"
   },
   "categoryOrder": [
     "Sekt & Prosecco",
@@ -574,6 +574,7 @@
       "bottleVolume": 10.0,
       "unit": "Kasten",
       "unitPlural": "Kästen",
+      "packSize": 20,
       "quantity": 2,
       "image": "assets/images/paulaner-weissbier-zitrone-alkoholfrei.webp",
       "description": "Alkoholfreies Weißbier mit spritziger Zitrone – Radler-Art und erfrischend, ganz ohne Alkohol (Kasten mit 20 × 0,5-l-Flaschen)."
@@ -588,6 +589,7 @@
       "bottleVolume": 10.0,
       "unit": "Kasten",
       "unitPlural": "Kästen",
+      "packSize": 20,
       "quantity": 1,
       "image": "assets/images/paulaner-muenchner-hell.webp",
       "description": "Untergäriges Münchner Helles – mild-malzig, süffig und ausgewogen mit feiner Hopfennote (Kasten mit 20 × 0,5-l-Flaschen)."
@@ -602,6 +604,7 @@
       "bottleVolume": 10.0,
       "unit": "Kasten",
       "unitPlural": "Kästen",
+      "packSize": 20,
       "quantity": 1,
       "image": "assets/images/paulaner-hefe-weissbier-naturtrueb.webp",
       "description": "Naturtrübes bayerisches Weißbier mit fruchtigen Aromen von Banane und Nelke – vollmundig und spritzig (Kasten mit 20 × 0,5-l-Flaschen)."

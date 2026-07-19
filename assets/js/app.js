@@ -47,6 +47,22 @@
     return b.unitPlural || PLURALS[u] || u;
   };
 
+  // Manche Einheiten fassen mehrere Flaschen (z. B. ein Kasten mit 20).
+  // Für solche Einträge zeigt die Seite die tatsächliche Flaschenzahl an,
+  // nicht nur die Zahl der Kästen. packSize = Flaschen je Einheit.
+  function packInfo(b) {
+    const size = Number(b.packSize) || 0;
+    if (!(size > 1)) return null;
+    const q = Number(b.quantity) || 0;
+    const u = b.packUnit || "Flasche";
+    const uPlural = b.packUnitPlural || PLURALS[u] || u;
+    return {
+      size,
+      bottles: q * size,
+      unitFor: (n) => (n === 1 ? u : uPlural),
+    };
+  }
+
   // Realistische Portionsgrößen je Kategorie (Liter pro Glas/Portion).
   // Daraus schätzt die Seite, wie viele Gläser/Drinks der Bestand ergibt –
   // die für eine Feier eigentlich interessante Zahl.
@@ -401,8 +417,10 @@
     const gläser = Math.round(liter / servingSize(b.category));
     const status = b.alcoholic ? "Alkoholisch" : "Alkoholfrei";
 
+    const pack = packInfo(b);
     const tiles = [
       { value: nf0.format(q), label: plural(q, b) },
+      pack ? { value: nf0.format(pack.bottles), label: pack.unitFor(pack.bottles), hint: `${nf0.format(pack.size)} je ${b.unit}` } : null,
       vol ? { value: nfL.format(vol), unit: "L", label: "Inhalt je Einheit" } : null,
       { value: nfL.format(liter), unit: "L", label: "Gesamtmenge" },
       { value: "≈ " + nf0.format(gläser), label: "Gläser", hint: "geschätzte Portionen" },
@@ -520,10 +538,14 @@
       img.classList.add("img-missing");
     }
 
+    const pack = packInfo(b);
     const badge = $(".qty-badge", tpl);
-    badge.textContent = `${nf0.format(q)}×`;
-    badge.classList.toggle("zero", q === 0);
-    badge.title = `${nf0.format(q)} ${plural(q, b)}`;
+    const shown = pack ? pack.bottles : q;
+    badge.textContent = `${nf0.format(shown)}×`;
+    badge.classList.toggle("zero", shown === 0);
+    badge.title = pack
+      ? `${nf0.format(q)} ${plural(q, b)} · ${nf0.format(pack.bottles)} ${pack.unitFor(pack.bottles)}`
+      : `${nf0.format(q)} ${plural(q, b)}`;
 
     const status = b.alcoholic ? "Alkoholisch" : "Alkoholfrei";
     const tag = $(".card-tag", tpl);
@@ -535,7 +557,9 @@
 
     const meta = $(".card-meta", tpl);
     const rows = [
-      ["Menge", `${nf0.format(q)} ${plural(q, b)}`],
+      ["Menge", pack
+        ? `${nf0.format(q)} ${plural(q, b)} · ${nf0.format(pack.bottles)} ${pack.unitFor(pack.bottles)}`
+        : `${nf0.format(q)} ${plural(q, b)}`],
       vol ? ["Inhalt", fmtLiter(vol)] : null,
       vol ? ["Gesamt", fmtLiter(q * vol)] : null,
       (b.alcoholic && b.abv != null) ? ["Alkohol", `${nfL.format(b.abv)}${NBSP}%${NBSP}vol`] : null,
