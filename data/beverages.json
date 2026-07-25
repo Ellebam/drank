@@ -456,6 +456,19 @@
       "description": "Französischer Aperitif auf Weinbasis mit feinen Zitrus- und Honignoten – eisgekühlt mit Tonic als Lillet Vive."
     },
     {
+      "id": "lillet-blanc-1l",
+      "name": "Lillet Blanc (1 l)",
+      "brand": "Lillet",
+      "category": "Aperitif & Spritz",
+      "alcoholic": true,
+      "abv": 17,
+      "bottleVolume": 1.0,
+      "unit": "Flasche",
+      "quantity": 5,
+      "image": "assets/images/lillet-blanc.webp",
+      "description": "Französischer Aperitif auf Weinbasis mit feinen Zitrus- und Honignoten – eisgekühlt mit Tonic als Lillet Vive (1-l-Flasche)."
+    },
+    {
       "id": "jack-daniels-old-no-7",
       "name": "Jack Daniel's Old No. 7 Tennessee Whiskey",
       "brand": "Jack Daniel's",
