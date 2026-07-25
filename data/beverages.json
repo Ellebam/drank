@@ -2,7 +2,7 @@
   "meta": {
     "title": "Unsere Getränke",
     "subtitle": "Übersicht unserer Getränke – was da ist, wie viel und in welcher Menge.",
-    "updated": "2026-07-19"
+    "updated": "2026-07-25"
   },
   "categoryOrder": [
     "Sekt & Prosecco",
@@ -513,7 +513,7 @@
       "alcoholic": false,
       "bottleVolume": 1.25,
       "unit": "Flasche",
-      "quantity": 24,
+      "quantity": 18,
       "image": "assets/images/mezzo-mix-zero.webp",
       "description": "Cola küsst Orange – das beliebte Cola-Mix-Getränk ohne Zucker."
     },
@@ -575,7 +575,7 @@
       "unit": "Kasten",
       "unitPlural": "Kästen",
       "packSize": 20,
-      "quantity": 2,
+      "quantity": 1,
       "image": "assets/images/paulaner-weissbier-zitrone-alkoholfrei.webp",
       "description": "Alkoholfreies Weißbier mit spritziger Zitrone – Radler-Art und erfrischend, ganz ohne Alkohol (Kasten mit 20 × 0,5-l-Flaschen)."
     },
